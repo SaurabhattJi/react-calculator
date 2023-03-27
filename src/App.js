@@ -1,11 +1,12 @@
 import "./App.css";
 import { useState } from "react";
+import { FaSquareRootAlt } from "react-icons/fa";
 
 function App() {
   const [result, setResult] = useState("");
 
   const handleClick = (e) => {
-    // console.log(e.target.innerText);
+    console.log(e.target.innerText);
     setResult(result.concat(e.target.innerText));
   };
   const clear = () => {
@@ -21,6 +22,9 @@ function App() {
       setResult("Error");
     }
   };
+  const sqroot = () => {
+    setResult(Math.sqrt(result));
+  };
 
   return (
     <div className="container">
@@ -33,8 +37,8 @@ function App() {
         <div onClick={backspace} className="btn light-gray">
           DEL
         </div>
-        <div onClick={handleClick} name="%" className="btn light-gray">
-          %
+        <div onClick={sqroot} className="btn light-gray">
+          <FaSquareRootAlt />
         </div>
         <div onClick={handleClick} name="/" className="btn orange">
           /
