@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(197, 156, 104);
   display: grid;
   place-content: center;
   font-family: "Ubuntu", sans-serif;
@@ -21,6 +20,7 @@ input {
   background-color: black;
   border-radius: 18px;
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 .wrapper {
   display: grid;
@@ -56,10 +56,10 @@ input {
   background-color: gray;
 }
 .orange {
-  background-color: rgba(238, 172, 49, 0.795);
+  background-color: rgb(255, 166, 0);
 }
 .orange:hover {
-  background-color: rgb(255, 166, 0);
+  background-color: rgb(139, 91, 1);
 }
 .light-gray {
   background-color: gray;
@@ -72,4 +72,10 @@ input {
 .equal {
   grid-column: 1 / span 2;
   border-radius: 25px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: #fff;
+  }
 }

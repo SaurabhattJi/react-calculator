@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { FaSquareRootAlt } from "react-icons/fa";
+import { BsBackspace } from "react-icons/bs";
 
 function App() {
   const [result, setResult] = useState("");
@@ -17,9 +18,10 @@ function App() {
   };
   const calculate = () => {
     try {
+      // eslint-disable-next-line
       setResult(eval(result).toString());
     } catch {
-      setResult("Error");
+      setResult("! Error");
     }
   };
   const sqroot = () => {
@@ -38,7 +40,7 @@ function App() {
           C
         </div>
         <div onClick={backspace} className="btn light-gray">
-          DEL
+          <BsBackspace />
         </div>
         <div onClick={sqroot} className="btn light-gray">
           <FaSquareRootAlt />
