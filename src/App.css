@@ -12,6 +12,9 @@ body {
   height: 100vh;
   font-size: 1.5rem;
 }
+input {
+  border: none;
+}
 .container {
   height: 80vh;
   width: 50vh;
@@ -30,6 +33,7 @@ body {
 .screen {
   grid-column: 1 / -1;
   color: white;
+  background-color: black;
   text-align: right;
   display: grid;
   align-items: center;

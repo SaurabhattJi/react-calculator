@@ -1,108 +1,87 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import { HiOutlineBackspace } from "react-icons/hi";
-import { BsBackspace } from "react-icons/bs";
+import { useState } from "react";
 
 function App() {
-  const [preState, setPreState] = useState("");
-  const [curState, setCurState] = useState("");
-  const [input, setInput] = useState(0);
-  const [operator, setOperator] = useState(null);
-  const [total, setTotal] = useState(false);
+  const [result, setResult] = useState("");
 
-  const reset = () => {
-    setPreState("");
-    setCurState("");
-    setInput("0");
+  const handleClick = (e) => {
+    // console.log(e.target.innerText);
+    setResult(result.concat(e.target.innerText));
   };
-  const percent = () => {};
-  const delePrev = () => {
-    setPreState(preState.slice(0, -1));
-    setCurState(curState.slice(0, -1));
-    setInput(input.slice(0, -1));
+  const clear = () => {
+    setResult("");
   };
-  const operatorType = (e) => {};
-  const inputNumber = (e) => {
-    if (curState.includes(".") && e.target.innerText === ".") return;
-    if (total) {
-      setPreState("");
+  const backspace = () => {
+    setResult(result.slice(0, -1));
+  };
+  const calculate = () => {
+    try {
+      setResult(eval(result).toString());
+    } catch {
+      setResult("Error");
     }
-    curState
-      ? setCurState((pre) => pre + e.target.innerText)
-      : setCurState(e.target.innerText);
-    setTotal(false);
   };
-
-  useEffect(() => {
-    setInput(curState);
-  }, [curState]);
-
-  useEffect(() => {
-    setInput("0");
-  }, []);
-
-  const equals = (e) => {};
 
   return (
     <div className="container">
       <div className="wrapper">
-        <div className="screen">{input}</div>
-        <div className="btn light-gray" onClick={reset}>
+        <input className="screen" value={result} />
+
+        <div onClick={clear} className="btn light-gray">
           C
         </div>
-        <div className="btn light-gray" onClick={delePrev}>
-          {/* <HiOutlineBackspace /> */}
-          <BsBackspace />
+        <div onClick={backspace} className="btn light-gray">
+          DEL
         </div>
-        <div className="btn light-gray" onClick={percent}>
+        <div onClick={handleClick} name="%" className="btn light-gray">
           %
         </div>
-        <div className="btn orange" onClick={operatorType}>
-          &divide;
+        <div onClick={handleClick} name="/" className="btn orange">
+          /
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="7" className="btn">
           7
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="8" className="btn">
           8
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="9" className="btn">
           9
         </div>
-        <div className="btn orange" onClick={operatorType}>
-          &times;
+        <div onClick={handleClick} name="*" className="btn orange">
+          *
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="4" className="btn">
           4
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="5" className="btn">
           5
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="6" className="btn">
           6
         </div>
-        <div className="btn orange" onClick={operatorType}>
+        <div onClick={handleClick} name="+" className="btn orange">
           +
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="1" className="btn">
           1
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="2" className="btn">
           2
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="3" className="btn">
           3
         </div>
-        <div className="btn orange" onClick={operatorType}>
+        <div onClick={handleClick} name="-" className="btn orange">
           -
         </div>
-        <div className="btn orange equal " onClick={equals}>
+        <div onClick={calculate} name="=" className="btn orange equal ">
           =
         </div>
-        <div className="btn " onClick={inputNumber}>
+        <div onClick={handleClick} name="0" className="btn ">
           0
         </div>
-        <div className="btn" onClick={inputNumber}>
+        <div onClick={handleClick} name="." className="btn">
           .
         </div>
       </div>
