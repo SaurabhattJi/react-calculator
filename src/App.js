@@ -23,8 +23,11 @@ function App() {
     }
   };
   const sqroot = () => {
-    setResult(Math.sqrt(result));
+    setResult(Math.sqrt(result).toFixed(2));
   };
+  // const root = () => {
+  //   setResult(Math.pow(result).toString());
+  // };
 
   return (
     <div className="container">

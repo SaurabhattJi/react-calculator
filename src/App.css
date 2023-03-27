@@ -56,10 +56,10 @@ input {
   background-color: gray;
 }
 .orange {
-  background-color: orange;
+  background-color: rgba(238, 172, 49, 0.795);
 }
 .orange:hover {
-  background-color: rgba(255, 166, 0, 0.449);
+  background-color: rgb(255, 166, 0);
 }
 .light-gray {
   background-color: gray;
